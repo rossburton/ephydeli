@@ -68,9 +68,11 @@ def init_plugin():
     model.set_name_flags("DeliciousPost", 4) # EGG_TB_MODEL_NAME_KNOWN
 
 def find_group(window):
-    groups = window.get_ui_manager().get_action_groups()
-    groups = [g for g in groups if g.get_name() == "SpecialToolbarActions"]
-    return groups[0]
+    for group in window.get_ui_manager().get_action_groups():
+        if group.get_name() == "SpecialToolbarActions":
+            return group
+    else:
+        raise AssertionError("Cannot find SpecialToolbarActions group")
 
 def attach_window(window):
     group = find_group(window)
