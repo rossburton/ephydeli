@@ -27,13 +27,13 @@ import gobject, gtk
 import epiphany
 
 def post_cb (action, window):
-        embed = window.get_active_embed()
+    embed = window.get_active_embed()
 
-        siteurl = quote(embed.get_location(toplevel=True))
-        sitetitle = quote(embed.get_title())
+    siteurl = quote(embed.get_location(toplevel=True))
+    sitetitle = quote(embed.get_title())
 
-        url = "http://del.icio.us/post?v=4;url=%s;title=%s" % (siteurl, sitetitle)
-        embed.load_url (url)
+    url = "http://del.icio.us/post?v=4;url=%s;title=%s" % (siteurl, sitetitle)
+    embed.load_url (url)
 
 _ui_str = """
 <ui>
@@ -44,43 +44,44 @@ _ui_str = """
   </menubar>
 </ui>
 """
+
 _actions = [('DeliciousPost', 'delicious', 'Post to _Del.icio.us', None, 'Post to Del.icio.us', post_cb)]
 
 def init_plugin():
-        # Add the icons we use to the theme.  A nice little hack because I'm too
-        # lazy to install icons correctly at the moment.
-        filename = os.path.join(os.path.dirname(__file__), "delicious.png")
-        try:
-                f = gtk.IconFactory()
-                f.add('delicious', gtk.IconSet(gtk.gdk.pixbuf_new_from_file(filename)))
-                f.add_default()
-        except gobject.GError, e:
-                print e
+    # Add the icons we use to the theme.  A nice little hack because I'm too
+    # lazy to install icons correctly at the moment.
+    filename = os.path.join(os.path.dirname(__file__), "delicious.png")
+    try:
+        f = gtk.IconFactory()
+        f.add('delicious', gtk.IconSet(gtk.gdk.pixbuf_new_from_file(filename)))
+        f.add_default()
+    except gobject.GError, e:
+        print e
 
-        shell = epiphany.ephy_shell_get_default()
-        model = shell.get_toolbars_model(False)
-        model.set_name_flags("DeliciousPost", 4) # EGG_TB_MODEL_NAME_KNOWN
+    shell = epiphany.ephy_shell_get_default()
+    model = shell.get_toolbars_model(False)
+    model.set_name_flags("DeliciousPost", 4) # EGG_TB_MODEL_NAME_KNOWN
 
 def find_group(window):
-        groups = window.get_ui_manager().get_action_groups()
-        groups = [g for g in groups if g.get_name() == "SpecialToolbarActions"]
-        return groups[0]
+    groups = window.get_ui_manager().get_action_groups()
+    groups = [g for g in groups if g.get_name() == "SpecialToolbarActions"]
+    return groups[0]
 
 def attach_window(window):
-        group = find_group(window)
-        group.add_actions(_actions, window)
+    group = find_group(window)
+    group.add_actions(_actions, window)
 
-        ui_manager = window.get_ui_manager()
-        ui_id = ui_manager.add_ui_from_string(_ui_str)
+    ui_manager = window.get_ui_manager()
+    ui_id = ui_manager.add_ui_from_string(_ui_str)
 
-        window._delicious_post_window_data = ui_id
+    window._delicious_post_window_data = ui_id
 
 def detach_window(window):
-        ui_id = window._delicious_post_window_data
-        del window._delicious_post_window_data
+    ui_id = window._delicious_post_window_data
+    del window._delicious_post_window_data
 
-        ui_manager = window.get_ui_manager()
-        ui_manager.remove_ui(ui_id)
-        ui_manager.ensure_update()
+    ui_manager = window.get_ui_manager()
+    ui_manager.remove_ui(ui_id)
+    ui_manager.ensure_update()
 
 init_plugin()
