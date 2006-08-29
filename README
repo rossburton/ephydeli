@@ -1,6 +1,8 @@
 EphyDeli
 ===
 
+Legal Nonsense
+==
 
 Copyright (C) 2006 Ross Burton <ross@burtonini.com>
 
@@ -9,8 +11,22 @@ the terms of the GNU General Public License as published by the Free Software
 Foundation; either version 2 of the License, or (at your option) any later
 version.  For more information, see COPYING.
 
+What Is It?
+==
 
 EphyDeli is a small extension for Epiphany that adds a menu item and toolbar
 button to post the current web site to Del.icio.us.  Simply press Tools->Post To
 Del.icio.us or press the Del.icio.us icon on the toolbar to go to the post page
 at Del.icio.us.
+
+Installation
+==
+
+For now, simply copy the following files to ~/.gnome2/epiphany/extensions:
+
+* deliciouspost.ephy-extension
+* deliciouspost.py
+* delicious.png
+
+Then go to Tools->Extensions... and enable Post to Del.icio.us.  If you want a
+toolbar icon too, edit the toolbar as usual.
