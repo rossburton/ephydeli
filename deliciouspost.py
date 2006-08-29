@@ -46,6 +46,7 @@ _ui_str = """
 """
 
 _actions = [('DeliciousPost', 'delicious', 'Post to _Del.icio.us', None, 'Post to Del.icio.us', post_cb)]
+_window_data = {}
 
 def init_plugin():
     # Add the icons we use to the theme.  A nice little hack because I'm too
@@ -79,13 +80,11 @@ def attach_window(window):
     group.add_actions(_actions, window)
 
     ui_manager = window.get_ui_manager()
-    ui_id = ui_manager.add_ui_from_string(_ui_str)
 
-    window._delicious_post_window_data = ui_id
+    _window_data[window] = ui_manager.add_ui_from_string(_ui_str)
 
 def detach_window(window):
-    ui_id = window._delicious_post_window_data
-    del window._delicious_post_window_data
+    uid_id = _window_data.pop(window)
 
     ui_manager = window.get_ui_manager()
     ui_manager.remove_ui(ui_id)
