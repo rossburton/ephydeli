@@ -1,0 +1,10 @@
+[Epiphany Extension]
+Name=Del.icio.us Post
+Description=Post the current page to Del.icio.us
+Authors=Ross Burton <ross@burtonini.com>
+Version=1
+URL=http://www.burtonini.com/
+
+[Loader]
+Type=python
+Module=deliciouspost
