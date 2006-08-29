@@ -28,5 +28,7 @@ For now, simply copy the following files to ~/.gnome2/epiphany/extensions:
 * deliciouspost.py
 * delicious.png
 
+Typing make install will do this for you.
+
 Then go to Tools->Extensions... and enable Post to Del.icio.us.  If you want a
 toolbar icon too, edit the toolbar as usual.
