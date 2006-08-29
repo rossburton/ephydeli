@@ -1,0 +1,16 @@
+EphyDeli
+===
+
+
+Copyright (C) 2006 Ross Burton <ross@burtonini.com>
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.  For more information, see COPYING.
+
+
+EphyDeli is a small extension for Epiphany that adds a menu item and toolbar
+button to post the current web site to Del.icio.us.  Simply press Tools->Post To
+Del.icio.us or press the Del.icio.us icon on the toolbar to go to the post page
+at Del.icio.us.
