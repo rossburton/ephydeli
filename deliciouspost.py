@@ -3,6 +3,7 @@
 
 # Post To Del.icio.us Epiphany Extension
 # Copyright (C) 2006 Ross Burton <ross@burtonini.com>
+#               2006 Johan Dahlin <jdahlin@async.com.br>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
