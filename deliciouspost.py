@@ -33,7 +33,7 @@ def post_cb(action, window):
     sitetitle = urllib.quote(embed.get_title())
 
     url = "http://del.icio.us/post?v=4;url=%s;title=%s" % (siteurl, sitetitle)
-    embed.load_url (url)
+    embed.load_url(url)
 
 _ui_str = """
 <ui>
