@@ -18,19 +18,19 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
-from urllib import quote
 import os.path
+import urllib
 
-import pygtk; pygtk.require("2.0")
-import gobject, gtk
+import gobject
+import gtk
 
 import epiphany
 
-def post_cb (action, window):
+def post_cb(action, window):
     embed = window.get_active_embed()
 
-    siteurl = quote(embed.get_location(toplevel=True))
-    sitetitle = quote(embed.get_title())
+    siteurl = urllib.quote(embed.get_location(toplevel=True))
+    sitetitle = urllib.quote(embed.get_title())
 
     url = "http://del.icio.us/post?v=4;url=%s;title=%s" % (siteurl, sitetitle)
     embed.load_url (url)
@@ -51,12 +51,17 @@ def init_plugin():
     # Add the icons we use to the theme.  A nice little hack because I'm too
     # lazy to install icons correctly at the moment.
     filename = os.path.join(os.path.dirname(__file__), "delicious.png")
+
     try:
-        f = gtk.IconFactory()
-        f.add('delicious', gtk.IconSet(gtk.gdk.pixbuf_new_from_file(filename)))
-        f.add_default()
+        pixbuf = gtk.gdk.pixbuf_new_from_file(filename)
     except gobject.GError, e:
         print e
+        return
+
+    # Register stockicon
+    f = gtk.IconFactory()
+    f.add('delicious', gtk.IconSet(pixbuf))
+    f.add_default()
 
     shell = epiphany.ephy_shell_get_default()
     model = shell.get_toolbars_model(False)
