@@ -31,7 +31,7 @@ def post_cb (action, window):
 
         siteurl = quote(embed.get_location(toplevel=True))
         sitetitle = quote(embed.get_title())
-        
+
         url = "http://del.icio.us/post?v=4;url=%s;title=%s" % (siteurl, sitetitle)
         embed.load_url (url)
 
@@ -60,7 +60,7 @@ def init_plugin():
         shell = epiphany.ephy_shell_get_default()
         model = shell.get_toolbars_model(False)
         model.set_name_flags("DeliciousPost", 4) # EGG_TB_MODEL_NAME_KNOWN
-        
+
 def find_group(window):
         groups = window.get_ui_manager().get_action_groups()
         groups = [g for g in groups if g.get_name() == "SpecialToolbarActions"]
