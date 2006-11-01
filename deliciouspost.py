@@ -40,17 +40,15 @@ class DeliciousPlugin(object):
     def _register_icon(self):
         # Add the icons we use to the theme.  A nice little hack because I'm too
         # lazy to install icons correctly at the moment.
-        filename = os.path.join(os.path.dirname(__file__), "delicious.png")
-
-        try:
-            pixbuf = gtk.gdk.pixbuf_new_from_file(filename)
-        except gobject.GError, e:
-            print e
-            return
-
-        # Register stockicon
+        set = gtk.IconSet()
+        for (pixels, size) in ((16, gtk.ICON_SIZE_MENU), (22, gtk.ICON_SIZE_SMALL_TOOLBAR), (24, gtk.ICON_SIZE_LARGE_TOOLBAR), (32, gtk.ICON_SIZE_BUTTON)):
+            source = gtk.IconSource()
+            source.set_filename (os.path.join(os.path.dirname(__file__), "delicious%d.png" % pixels))
+            source.set_size_wildcarded(False)
+            source.set_size(size)
+            set.add_source(source)
         f = gtk.IconFactory()
-        f.add('delicious', gtk.IconSet(pixbuf))
+        f.add('delicious', set)
         f.add_default()
 
     def _find_group(self, window):
