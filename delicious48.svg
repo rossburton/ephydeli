@@ -15,8 +15,8 @@
    id="svg2"
    sodipodi:version="0.32"
    inkscape:version="0.44"
-   sodipodi:docname="48-plain.svg"
-   sodipodi:docbase="/home/gareth/Artwork/ephydelicious/Inkscape_Files/shiny"
+   sodipodi:docname="48(new).svg"
+   sodipodi:docbase="/home/gareth/Artwork/ephydeli-icons.tar.gz_FILES/shiny"
    inkscape:export-filename="/home/gareth/Artwork/ephydelicious/Inkscape_Files/shiny/48-plain.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -33,7 +33,7 @@
   </metadata>
   <sodipodi:namedview
      inkscape:window-height="617"
-     inkscape:window-width="856"
+     inkscape:window-width="858"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      guidetolerance="10.0"
@@ -44,11 +44,11 @@
      pagecolor="#ffffff"
      id="base"
      showgrid="false"
-     inkscape:zoom="8.4791667"
-     inkscape:cx="24"
+     inkscape:zoom="1"
+     inkscape:cx="23.999992"
      inkscape:cy="24"
      inkscape:window-x="103"
-     inkscape:window-y="45"
+     inkscape:window-y="47"
      inkscape:current-layer="layer1" />
   <defs
      id="defs4">
@@ -157,8 +157,8 @@
     <linearGradient
        x1="10.512196"
        y1="3"
-       x2="26.073172"
-       y2="34.097561"
+       x2="23.999996"
+       y2="38.999996"
        id="linearGradient3167"
        xlink:href="#linearGradient3161"
        gradientUnits="userSpaceOnUse"
@@ -218,8 +218,9 @@
        style="opacity:0.2;fill:none;fill-opacity:1;stroke:white;stroke-width:0.99750006;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path2783" />
     <path
-       d="M 4,39 L 4,5.999999 L 6.9999999,3 L 41.000001,3 C 43.252371,3 44.000001,4.121793 44.000001,5.999999 C 44.000001,5.999999 44.000001,9.999999 44.000001,9.999999 C 44.000001,15.375514 33.084366,24.551125 22.000001,26.02439 C 10.439235,27.560975 4,39 4,39 z "
+       d="M 4,39 L 4,5.999999 L 6.9999999,3 L 41.000001,3 C 43.252371,3 44.000001,4.121793 44.000001,5.999999 C 44.000001,5.999999 44.000001,10.036637 44.000001,10.036637 C 22.047475,14.026833 27.859871,29.036296 4,39 z "
        style="opacity:0.33300003;fill:url(#linearGradient3167);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       id="path3159" />
+       id="path3159"
+       sodipodi:nodetypes="ccccccc" />
   </g>
 </svg>
