@@ -35,7 +35,8 @@ class DeliciousPlugin(object):
 
         shell = epiphany.ephy_shell_get_default()
         model = shell.get_toolbars_model(False)
-        model.set_name_flags("DeliciousPost", 4) # EGG_TB_MODEL_NAME_KNOWN
+        if model.get_name_flags('HideMenu') == 0:
+            model.set_name_flags("DeliciousPost", 4) # EGG_TB_MODEL_NAME_KNOWN
 
     def _register_icon(self):
         # Add the icons we use to the theme.  A nice little hack because I'm too
