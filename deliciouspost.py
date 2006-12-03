@@ -27,6 +27,8 @@ import gtk
 
 import epiphany
 
+EGG_TB_MODEL_NAME_KNOWN = 1 << 2
+
 class DeliciousPlugin(object):
     def __init__(self):
         self._window_data = {}
@@ -35,8 +37,8 @@ class DeliciousPlugin(object):
 
         shell = epiphany.ephy_shell_get_default()
         model = shell.get_toolbars_model(False)
-        if model.get_name_flags('HideMenu') == 0:
-            model.set_name_flags("DeliciousPost", 4) # EGG_TB_MODEL_NAME_KNOWN
+        flags = model.get_name_flags('DeliciousPost')
+        model.set_name_flags('DeliciousPost', flags | EGG_TB_MODEL_NAME_KNOWN)
 
     def _register_icon(self):
         # Add the icons we use to the theme.  A nice little hack because I'm too
@@ -93,6 +95,13 @@ class DeliciousPlugin(object):
         ui_manager = window.get_ui_manager()
         ui_manager.remove_ui(ui_id)
         ui_manager.ensure_update()
+
+    # Not supported yet in Epiphany
+    def finalize(self):
+        shell = epiphany.ephy_shell_get_default()
+        model = shell.get_toolbars_model(False)
+        name_flags = model.get_name_flags('DeliciousPost')
+        model.set_name_flags('DeliciousPost', name_flags & ~EGG_TB_MODEL_NAME_KNOWN)
 
 plugin = DeliciousPlugin()
 
