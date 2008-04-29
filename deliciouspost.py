@@ -62,10 +62,14 @@ class DeliciousPlugin(object):
             raise AssertionError("Cannot find SpecialToolbarActions group")
 
     def _delicious_post_activate_cb(self, action, window):
-        embed = window.get_active_embed()
-
+        try:
+            embed = window.get_active_child()
+            sitetitle = urllib.quote(embed.get_properties("title")[0])
+        except:
+            # Fallback on previous api (pre 2.22)
+            embed = window.get_active_embed()
+            sitetitle = urllib.quote(embed.get_title())
         siteurl = urllib.quote(embed.get_location(toplevel=True))
-        sitetitle = urllib.quote(embed.get_title())
 
         url = "http://del.icio.us/post?v=4;url=%s;title=%s" % (siteurl, sitetitle)
         embed.load_url(url)
